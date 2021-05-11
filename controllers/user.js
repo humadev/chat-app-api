@@ -5,7 +5,7 @@ let routes = express.Router();
 
 routes.route('/get').get(getUser);
 routes.route('/create').post(createUser);
-routes.route('/update').post(udpdateUser);
+routes.route('/update').post(updateUser);
 routes.route('/delete').post(deleteUser);
 
 
@@ -54,7 +54,7 @@ async function createUser(req, res, next){
     res.status(200).json(users);
 }
 
-async function udpdateUser(req, res, next){
+async function updateUser(req, res, next){
     const users = await prismaClient.user.update({
         where: {
             id: 1
